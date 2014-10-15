@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css experiment</title>
+	<style>
+	ul,li {margin:0;padding:0;list-style:none}
+	img {vertical-align: top;}
+	.wrap { width: 930px; margin:50px auto; padding:10px; border-radius: 5px; background-color: #09e; color:#fff; font:14px/2 arial;}
+	.i-box {
+		display:-webkit-box;
+		display:-moz-box;
+		width: 100%;
+	}
+	.i-box li {
+		width:0%;
+		margin:10px 5px 20px;
+		background-color: #f7f7f7;
+		color:#333;
+		line-height: 128px;
+		-webkit-box-flex:1;
+		-moz-box-flex:1;
+	}
+	.i-box .i1 {
+		background: -webkit-linear-gradient(45deg, #bfdbe5, #e5e5bf,#e5bfdd);
+		background: -moz-linear-gradient(#f7f7f7, #cccccc);
+		-webkit-box-flex:2;
+		-moz-box-flex:2;
+	}
+	.box {overflow: hidden}
+	.i {
+		width: 280px;
+		float:left;
+		margin:0 10px;
+		margin-bottom: -9999px;
+		padding-bottom: 9999px;
+		background-color: #f0f0f0;
+	}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<ul class="i-box">
+		<li class="item i1"><img src="http://cdn-img.easyicon.net/png/11694/1169408.gif">sencha</li>
+		<li class="item"><img src="http://cdn-img.easyicon.net/png/11694/1169408.gif"></li>
+		<li class="item">1</li>
+	</ul>
+</div>
+<div class="wrap box">
+	<div class="i">term<br>term<br>term</div>
+	<div class="i">term</div>
+</div>
+</body>
+</html>

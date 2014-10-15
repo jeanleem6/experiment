@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css experiment</title>
+	<style>
+	html {height: 100%}
+	body,ul,li,p {margin:0;padding:0}
+	img {vertical-align: top}
+	body{
+		background: url(1.png) 10% 80% no-repeat,url(2.png) 90% 30% no-repeat,-webkit-linear-gradient(-270deg, #bfdbe5,#e5e5bf,#e5bfdd);
+		background: url(1.png) 10% 80% no-repeat,url(2.png) 90% 30% no-repeat,-moz-linear-gradient(-100deg, #bfdbe5,#e5e5bf,#e5bfdd);
+	}
+	li{list-style: none}
+	.cf:before,.cf:after {display: table; content:""}.cf:after{clear:both}.cf{zoom:1}
+	.fr{float: right}
+	.wrap { width: 600px; margin:50px auto; padding:10px; _padding-bottom:10px; border-radius: 3px; background-color: #09e; color:#fff; font:14px/2 arial; text-align: center; }
+	.wrap ul { margin-right: -15px}
+	.wrap li { width:180px; float: left; margin: 0 15px 10px 0; padding:0 5px; background-color: #fcfcfc; text-align: left; color:#333; }
+	#result {display: inline-block; width: 80px;text-align: left}
+	.i-box {
+		display:-webkit-box;
+		display:-moz-box;
+		width: 100%;
+	}
+	.i-box .item {
+		width:0%;
+		margin:10px 5px 20px;
+		background-color: #f7f7f7;
+		color:#333;
+		text-align: left;
+		-webkit-box-flex:1;
+		-moz-box-flex:1;
+	}
+	.i-box .item span {
+		display: inline-block;
+		padding:0 5px;
+		line-height: 30px;
+		vertical-align: middle;
+		background-color: #ccc;
+	}
+	.i-box .i1 {
+		background: url(cloud.png) -20px -10px no-repeat,-webkit-linear-gradient(45deg, #bfdbe5, #e5e5bf,#e5bfdd);
+		background: url(cloud.png) 0% 50% no-repeat,-moz-linear-gradient(#f7f7f7, #cccccc);
+		-webkit-box-flex:2;
+		-moz-box-flex:2;
+	}
+	</style>
+</head>
+<body>
+<div class="wrap">
+	<ul id="list" class="cf"><li><span class="fr">2014-08-29</span>item1</li><li>item2</li><li>item3</li></ul>
+</div>
+
+<script>
+// 获取节点
+var list         = document.getElementById("list"),
+	first       = list.firstChild,
+	last        = list.lastChild,
+	children = list.childNodes,
+	pre        = last.previousSibling,
+	next      = first.nextSibling,
+	parenti  = first.parentNode;
+	// alert(parenti.outerHTML);
+
+// 节点操作
+var createDiv = document.createElement("div"),
+	content = '新增节点 <a href="javascript:void(0);" id="remove">remove</a>',
+	comment = document.createComment("This is an comment");
+	createDiv.setAttribute("id","newItem");
+	createDiv.innerHTML = content;
+	list.appendChild(createDiv);
+	list.appendChild(comment);
+
+var iremove = document.getElementById("remove"),
+	newItem = document.getElementById("newItem");
+	iremove.onclick = function(){
+		list.removeChild(newItem);
+		clonei = pre.cloneNode(true);
+		list.appendChild(clonei);
+	}
+</script>
+<div class="wrap">
+	<input type="text" id="getNum" name="getNum"> = <span id="result"></span><input type="button" onclick="sum();" value="sum">
+</div>
+<script>
+function sum(){
+	var num = document.getElementById("getNum"),
+		numValue = num.value,
+		container = document.getElementById("result"),
+		regExp = RegExp(/^\d+$/);
+
+	if(!numValue.match(regExp)) {
+		num.focus();
+		alert("Please enter a number into the box!");
+	} else {
+		var sum=0;
+		for(var i=1; i <= numValue; i++) {
+			sum += i;
+		}
+		container.innerText = sum;
+	}
+}
+</script>
+
+<div class="wrap cf">
+	<div class="i-box">
+		<div class="item i1"><img src="http://cdn-img.easyicon.net/png/11694/1169408.gif" alt=""></div>
+		<div class="item">1</div>
+		<div class="item">1</div>
+	</div>
+</div>
+
+<script>
+// 闭包
+function a() {
+	var i = 0;
+
+	function b() {
+		alert(++i);
+	}
+	return b;
+}
+var c = a();
+c();
+</script>
+</body>
+</html>
