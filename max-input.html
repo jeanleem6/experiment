@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+<meta charset="utf-8">
+<title>words limit</title> 
+</head> 
+
+<body> 
+<div style="width:1000px; margin:50px auto; padding:15px 20px; background-color:#f7f7f7"> 
+	<p>
+		<label for="name">昵称：</label><input type="text" name="name" id="mytext1" maxlength="15" onKeyUp="keypress1()">
+		<font color="gray" id="name">你还可以输入15个字</font>
+	</p>
+
+	<p>
+		<label for="comment" style="vertical-align: top">评论：</label><textarea id="myarea" cols="60" rows="6" name="comment" onKeyUp="keypress2()" onblur="keypress2()"></textarea> 
+		<font color="gray" style="vertical-align: top" id="comment">你还可以输入200个字</font>
+	</p>
+</div>
+
+<script> 
+function keypress1() //text输入长度处理 
+{ 
+	var text1=document.getElementById("mytext1").value; 
+	var len=15-text1.length;
+	var show="你还可以输入"+len+"个字";
+	document.getElementById("name").innerText=show;
+}
+function keypress2() //textarea输入长度处理 
+{ 
+	var text1=document.getElementById("myarea").value; 
+	var len;//记录剩余字符串的长度 
+	if(text1.length>=200)//textarea控件不能用maxlength属性，就通过这样显示输入字符数了 
+	{ 
+		document.getElementById("myarea").value=text1.substr(0,200); 
+		len=0; 
+	} 
+	else{ 
+		len=200-text1.length; 
+	} 
+	var show="你还可以输入"+len+"个字"; 
+	document.getElementById("comment").innerText=show; 
+}
+</script>
+</body> 
+</html> 
