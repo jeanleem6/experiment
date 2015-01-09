@@ -3,7 +3,33 @@
 <head>
 	<meta charset="utf-8" />
 	<title>animation</title>
-	<link rel="stylesheet" href="css/animation.css" />
+	<style>
+		@-webkit-keyframes 'move' {
+		     0% {
+		       margin-top:0;
+		     }
+		     100% {
+		      margin-top:30px;
+		     }
+		  }
+
+		.box {
+		  border-radius:50%;
+		  width:200px;
+		  height:200px;
+		  box-shadow:inset 0 0 0 22px rgba(255,255,255,1),0 0 5px rgba(0,0,0,0.3);
+		  -webkit-transition: all .4s ease-in-out;
+		  -moz-transition:all .4s ease-in-out;
+		  -o-transition:all .4s ease-in-out;
+		  transition:all .4s ease-in-out;
+		  background: url(images/animation.png) 50% 50% no-repeat;
+		  margin:0 auto;
+		}
+		.box:hover {
+		  box-shadow:inset 0 0 0 1px rgba(42,176,229,0.1),0 1px 2px rgba(0,0,0,0.1);
+		  background: url(images/animation.png) 50% 30% no-repeat;
+		}
+	</style>
 </head>
 
 <body>

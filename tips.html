@@ -1,13 +1,40 @@
-<!Doctype html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!Doctype html>
 <html>
 <head>
+<meta charset="utf-8" />
 <title>Tips</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<meta />
+<style>
+	.wrapper {width:70%; margin:10px auto; min-height:300px; padding:20px; text-align:center;}
+	.wrapper ul { width:592px; margin:0 auto; background:#b4eaff; }
+
+	.top, .right, .bottom, .left { position:relative; width:120px; height:50px; background:#fff; border-radius: 6px; border:1px solid #e8e8e8; box-shadow: 2px 2px 5px rgba(154, 226, 255, 0.3); margin:20px 10px; padding:3px; float:left; }
+	.top:before, .top:after, .right:before, .right:after, .bottom:before, .bottom:after, .left:before, .left:after { display: block; content:""; width:0; height:0; position:absolute; border: solid transparent; }
+	.top:before { top:-12px; left:12px; border-width:12px 8px; border-bottom-color:#e8e8e8; margin-top:-13px; z-index:1; }
+	.top:after { top:-12px; left:12px; border-width:12px 8px; border-bottom-color:#fff; margin-top:-11px; z-index:2; }
+
+	.right:before { top:12px; right:-12px; border-width:8px 12px; border-left-color:#e8e8e8; margin-right:-13px; z-index:1; }
+	.right:after { top:12px; right:-12px; border-width:8px 12px; border-left-color:#fff; margin-right:-11px; z-index:2; }
+
+	.bottom:before { top:100%; left:12px; border-width:12px 8px; border-top-color:#e8e8e8; margin-top:1px; z-index:1; }
+	.bottom:after { top:100%; left:12px; border-width:12px 8px; border-top-color:#fff; margin-top:-1px; z-index:2; }
+
+	.left:before { top:12px; left:-12px; border-width:8px 12px; border-right-color:#e8e8e8; margin-left:-13px; z-index:1; }
+	.left:after { top:12px; left:-12px; border-width:8px 12px; border-right-color:#fff; margin-left:-11px; z-index:2; }
+
+	.envelope { position:relative; width:240px; height:100px; background:#e3d9a9; border-radius: 4px; border:1px solid #e8e8e8; box-shadow: 2px 2px 5px rgba(154, 226, 255, 0.3); margin:20px 10px; padding:3px; float:left; }
+	.envelope:before, .envelope:after, .ft:before , .ft:after { content:""; display:block; position:absolute; width:0; height:0; border: solid transparent; }
+	.envelope:before { border-width:68px 115px 0 115px; border-top-color:#7f7f7f; top:2px; left:8px; z-index:3; }
+	.envelope:after { border-width:68px 120px 0 120px; border-top-color:#e3d9a9; top:0; z-index:4; }
+	.ft:before { border-width:0 120px 55px 120px; border-bottom-color:#a3a3a3; background:; top:52px; z-index:1; }
+	.ft:after { border-width:0 120px 55px 120px; border-bottom-color:#e3d9a9; top:53px; z-index:2; }
+
+	.icon, .opposite_1 { width:0px; height:0px; float:left; margin-top:30px; border: double; border-width:8px 9px; border-color: orange transparent green; }
+	.opposite { border-width:5px 6px; border-color:green transparent orange; margin-top:28px; }
+	.opposite_1 { border-width:3px 4px; margin-top:25px; }
+</style>
 </head>
 
- <body>
+<body>
 <div class="wrapper clearfix">
 	<ul class="clearfix">
 		 <li class="top">topArrow</li>
@@ -23,3 +50,4 @@
 	</ul>
 </div>
 </body>
+</html>
