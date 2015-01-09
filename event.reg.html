@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>event reg</title>
+  <style>
+  body,p,ol,dd {margin:0;padding:0}
+  body { padding-top: 104px; background-color: #fffcee; font:14px arial,'Times New Roman', 'Microsoft Yahei', sans-serif; color: #464646; }
+  a {color:333; text-decoration: none}
+  a:hover {color:#51b5f7;}
+
+  .cf:before,.cf:after {content:' '; display: table}.cf:after{clear:both}.cf{zoom:1}
+  .fl {float: left}
+
+  .head { position: fixed; width: 100%; top:0; left:0; padding:12px 0; border-bottom: 3px solid #999; background-color: #111; color:#f0f0f0; text-align: center}
+  .logo {position: absolute; top:12px; left:20px}
+  .site_meaning { display: inline-block; font-size: 32px; line-height: 80px; }
+  </style>
+</head>
+
+<body>
+<script type="text/javascript">
+  function mouseevent_callback(event) {
+    /* The following is for compatability */
+    /* IE does NOT by default pass the event object */
+    /* obtain a ref to the event if one was not given */
+    if (!event) event = window.event;
+
+    /* obtain event type and target as earlier */
+    var eType = event.type;
+    var eTarget = event.target || event.srcElement;
+    alert(eType +' event on element with id: '+ eTarget.id);
+  }
+
+ window.onload = function loadevent() {
+   /* obtain a ref to the 'body' element of the page */
+   var body = document.body;
+   /* create a span element to be clicked */
+   var span = document.createElement('span');
+   span.id = 'ExampleSpan';
+   span.appendChild(document.createTextNode ('Click Here!'));
+
+   /* register the span object to receive specific mouse events */
+   span.onmousedown = mouseevent_callback;
+   span.onmouseup = mouseevent_callback;
+   span.onmouseover = mouseevent_callback;
+   span.onmouseout = mouseevent_callback;
+
+   /* display the span on the page */
+   body.appendChild(span);
+}
+</script>
+
+<div class="head cf">
+  <img src="http://dummyimage.com/160x80/51b5f7/ffffff.gif&text=LOGO" alt="logo" class="logo fl">
+  <span class="site_meaning">Welcome, my friends!</span>
+</div>
+
+<ul class="level-1">
+  <li class="item-i">I</li>
+  <li class="item-ii">II
+    <ul class="level-2">
+      <li class="item-a">A</li>
+      <li class="item-b">B
+        <ul class="level-3">
+          <li class="item-1">1</li>
+          <li class="item-2">2</li>
+          <li class="item-3">3</li>
+        </ul>
+      </li>
+      <li class="item-c">C</li>
+    </ul>
+  </li>
+  <li class="item-iii">III</li>
+</ul>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>$('li.item-a').parents().find('.level-2').css('background-color', '#ccc');</script>
+</body>
+</html>
