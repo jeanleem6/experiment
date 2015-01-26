@@ -36,6 +36,34 @@
 		padding-bottom: 9999px;
 		background-color: #f0f0f0;
 	}
+	.blend_mode {
+		width: 800px;
+		height: 720px;
+		margin:0 auto;
+		background-color:#2e99e4;
+	}
+	.blend_mode .core {
+		width: 400px;
+		height: 470px;
+		background-color: #f00;
+		color:#fff;
+		line-height: 2;
+		opacity: .95;
+	}
+	.blend_mode img {
+		mix-blend-mode: hard-light
+	}
+	.clip_path {
+		width: 600px;
+		height: 600px;
+		margin:0 auto;
+		background-color: #f0f0f0
+	}
+	.clip_path .core {
+		height: 600px;
+		-webkit-clip-path:polygon(260px 50px,0px 320px,260px 550px,420px 270px);
+		background:url(img/color_pic.jpg);
+	}
 	</style>
 </head>
 <body>
@@ -49,6 +77,16 @@
 <div class="wrap box">
 	<div class="i">term<br>term<br>term</div>
 	<div class="i">term</div>
+</div>
+
+<div class="blend_mode">
+	<div class="core">
+		<img src="img/color_pic.jpg" alt="">Only firefox surport right now.
+	</div>
+</div>
+
+<div class="clip_path">
+	<div class="core"></div>
 </div>
 </body>
 </html>

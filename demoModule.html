@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Module</title>
+    <style>
+    body { margin: 0; background-color: #f7f7f7; font: 14px/1.8 arial, 'Microsoft Yahei', sans-serif; color: #999; }
+    a { color: #333; text-decoration: none; }
+    a:hover { color: #000}
+    .wrap { width: 1000px; margin: 0 auto; }
+    .btn { display: inline-block; margin: 10px; padding: 2px 20px; border: 1px solid #f0f0f0; border-radius: 8px 3px 15px; box-shadow: 1px 2px 1px rgba(0, 0, 0, .1); background: -webkit-linear-gradient(68deg, #bfdbe5, #e5e5bf, #e5bfdd); background: -moz-linear-gradient(68deg, #bfdbe5, #e5e5bf, #e5bfdd); color: #f60; }
+    </style>
+    <!-- <script src="js/require.js" data-main="js/demoModule"></script> -->
+</head>
+
+<body>
+    <!-- <script>
+	var Demo = require(['demoModule']),
+		obj = new Demo();
+
+	// alert(obj);
+
+	obj.setName('jeanleem6');
+	obj.getName();
+	</script> -->
+
+    <div class="wrap">
+        <a href="javascript:void(0);" onclick="alert('Click');" class="btn">Click</a>
+        <a href="javascript:void(0);" ondblclick="alert('DblClick');" class="btn">DblClick</a>
+        <a href="javascript:void(0);" onmousedown="alert('mousedown');" class="btn">mousedown</a>
+        <a href="javascript:void(0);" onmouseup="alert('mouseup');" class="btn">mouseup</a>
+        <a href="javascript:void(0);" onmouseout="alert('mouseout');" class="btn">mouseout</a>
+        <a href="javascript:void(0);" onmouseover="alert('mouseover');" class="btn">mouseover</a>
+        <a href="javascript:void(0);" onmousemove="alert('mousemove');" class="btn">mousemove</a>
+        <a href="javascript:void(0);" oncontextmenu="alert('contextmenu');" class="btn">contextmenu</a>
+
+        <script type="text/javascript">
+        function onclick_callback(event) {
+            var eType = event.type;
+            var eTarget = event.target || event.srcElement;
+
+            alert("Captured Event (type=" + eType + ", target=" + eTarget + ")");
+        }
+        </script>
+
+        <span onclick="onclick_callback(event);">Click Here</span>
+
+
+        <script type="text/javascript">
+        function mouseevent_callback(event) {
+            if (!event) event = window.event;
+
+            var eType = event.type;
+            var eTarget = event.target || event.srcElement;
+            alert(eType + ' event on element with id: ' + eTarget.id);
+        }
+
+        window.onload = function onload() {
+            var body = document.body;
+            var span = document.createElement('span');
+            span.id = 'ExampleSpan';
+            span.className = 'ExampleClass';
+            span.appendChild(document.createTextNode('Click Here!'));
+
+            span.onmousedown = mouseevent_callback;
+            span.onmouseup = mouseevent_callback;
+            span.onmouseover = mouseevent_callback;
+            span.onmouseout = mouseevent_callback;
+
+            body.appendChild(span);
+        }
+        </script>
+    </div>
+</body>
+</html>
