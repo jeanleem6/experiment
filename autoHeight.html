@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AutoHeight</title>
+	<style>
+	body,ul,li,dl,dd,p{margin:0; padding:0}
+	.cf:before,.cf:after{content: " ";display: table}.cf:after{clear: both}.cf{zoom:1}
+	.wrap {width: 1000px; margin:0 auto;background-color: #f0f0f0; overflow: hidden}
+	.wrap >div { width: 32%; height: 50px; float: left; margin:20px 2% -9999px 0; padding-bottom: 9999px; border-top: 1px solid #fff; background-color: #06b; color:#fff; }
+	.wrap >div:first-child {height: 100px}
+	.wrap >div:nth-child(2n) {background-color: #07b}
+	.wrap >div:nth-child(3n) {margin-right: 0; background-color: #06c}
+	</style>
+</head>
+<body>
+	<div class="wrap cf">
+		<div>row1<br>row1<br>row1<br>row1<br>row1</div>
+		<div>row2<br>row1<br>row1<br>row1<br>row1</div>
+		<div>row3<br>row1<br>row1<br>row1<br>row1</div>
+	</div>
+</body>
+</html>

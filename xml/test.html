@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+/*html,body { width: 100%; height: 100%; margin:0; padding:0; background-color: #f7f7f7; overflow: hidden; }*/
+body,ul,li,p {margin:0; padding:0}
+ul,li {margin:0; padding:0; list-style: none}
+.wrap {position: relative; width: 1140px; margin:0 auto; background-color: #f7f7f7}
+.mt20 {margin-top: 20px}
+#xml note,
+#xml note title {display: block}
+
+@media screen and (min-width: 1174px) {
+	.calc {padding-left: calc(100vw - 100%);}
+}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+	<p>top</p>
+</div>
+<div class="calc">
+	<div class="wrap">
+		<a href="javascript:void(0);" onclick="copy();">COPY!</a>
+		<ul class="list">
+			<li><img src="http://dummyimage.com/500x50/fff/ccc.gif&text=JS TEST"></li>
+			<li><img src="http://dummyimage.com/500x50/fff/ccc.gif&text=JS TEST"></li>
+		</ul>
+	</div>
+</div>
+
+<div class="wrap mt20">
+	<button onclick="loadXMLDoc('xmldata.txt')">Get XML</button>
+	
+	<div id="xml"></div>
+</div>
+
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script>
+function copy() {
+	var item = $(".list li:last").clone();
+	$(".list").append(item);
+}
+</script>
+
+<script>
+var xmlhttp = null;
+function loadXMLDoc(url) {
+	if (window.XMLHttpRequest) {
+		// code for Firefox, Mozilla, IE7+, etc.
+		xmlhttp = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		// code for IE6, IE5
+		xmlhttp = new ActiveXObject("Microsoft .XMLHTTP");
+	}
+	if (xmlhttp != null) {
+		xmlhttp.onreadystatechange = state_Change;
+		xmlhttp.open("GET",url,true);
+		xmlhttp.send(null);
+	} else {
+		alert("Your browser does not support XMLHTTP. ");
+	}
+}
+
+function state_Change() {
+	if (xmlhttp.readyState==4) { // 4 = "loaded"
+		if (xmlhttp.status==200) { // 200 = "OK"
+			var xmlContent = document.getElementById("xml");
+			xmlContent.innerHTML = xmlhttp.getAllResponseHeaders();
+		} else {
+			alert("Problem retrieving XML data");
+		}
+	}
+}
+</script>
+</body>
+</html>

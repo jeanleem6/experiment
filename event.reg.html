@@ -11,12 +11,23 @@ a{color:#464646; text-decoration: none}a:hover{color:#51b5f7;}
 p{background-color:#f7f7f7}
 .cf:before,.cf:after{content:' '; display: table}.cf:after{clear:both}.cf{zoom:1}
 .fl{float:left}
+.red {color:red}
 
 .wrap{position: relative; width:1140px; margin:0 auto}
 .head { position: fixed; width: 100%; top:0; left:0; padding:20px 0; border-bottom: 3px solid #999; background-color: #111; color:#f0f0f0}
 .head .wrap > span {display: inline-block; vertical-align: middle}
 .site_meaning {margin-left: 20px; font-size: 21px}
 .foot {position: fixed; width: 100%; bottom:0; left:0; line-height: 3; text-align: center}
+#letterReceive {word-wrap: break-word}
+
+.form {font-size: 12px; line-height: 1.4}
+.form .txt {width: 180px; height: 25px; padding:3px; border:1px solid #dbdbdb; line-height: 25px; color:#999; vertical-align: middle}
+.form .txt:hover,
+.form .txt:focus {border-color:#51b5f7; color:#333}
+.form .btn {width: 78px; height: 33px; *margin-top: 1px; border:none; background-color: #31a5f7; border-radius: 3px; font-size: 15px; color:#fff; vertical-align: middle; cursor:pointer; transition:all .3s linear 0s}
+.form .btn:hover {background-color: #51b5f7}
+.form .radio {margin-top: -3px; *margin-top: 0; vertical-align: middle}
+.form .chkbox {margin-top:1px; margin-top: -2px\9; *margin-top:0px; vertical-align: middle;}
 </style>
 </head>
 
@@ -28,21 +39,56 @@ p{background-color:#f7f7f7}
   </div>
 </div>
 
-<div class="wrap">
-  <div id="eventReceive"></div>
-  <div id="letterReceive"></div>
+<div id="count" class="wrap">
+    <div id="eventReceive"><div>1</div></div>
+    <div id="letterReceive"></div>
+    <form action="javascript:void(0);" name="form1" method="post" class="form">
+        <div>
+            <input type="radio" value="0" name="media" class="radio">网络 <input type="radio" value="1" name="media" class="radio">电视 <input type="radio" value="2" name="media" class="radio">报纸
+        </div>
+        <div style="margin-top: 10px">
+            <input type="checkbox" value="0" name="media" class="chkbox">网络 <input type="checkbox" value="1" name="media" class="chkbox">电视 <input type="checkbox" value="2" name="media" class="chkbox">报纸
+        </div>
+        <div style="margin-top:10px">
+            <input type="text" name="inputxt" value="" class="txt"> <input type="submit" name="btnSubmit" value="提交" class="btn">
+        </div>
+    </form>
 </div>
 <div class="foot">MIT Licence. Be free to reprint of site content. Follow: <a href="https://github.com/jeanleem6" target="_blank">http://github.com/Jeanleem6</a></div>
 
 <!-- <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script> -->
 
 <script>
-var container = document.getElementById("letterReceive");
-var letters = "jeanleem6".replace("jean","jh"),
-      r = 3;
-      s = Math.PI * r * r;
-      c = 2 * Math.PI * r;
-container.innerHTML = parseInt(s);
+var letterReceive = document.getElementById("letterReceive");
+// var obj = {};
+// var a =[4,1,2,3];
+// letterReceive.innerHTML += "<span class='red'>Total item:" + a.length + " </span>/ ";
+// a.splice(1,2,[0],[5]);
+// a.unshift(8);
+// a.sort().toString();
+// for (var i = 0, len = a.length; i < len; i++) {
+//     letterReceive.innerHTML += a[i] + " ";
+// }
+// alert(a.join("、"));
+
+var charsInBody = (function(elm) {
+    // if (elm.nodeType == 3) { // TEXT_NODE
+    //     return elm.nodeValue.length;
+    // }
+    var count = 0;
+    for (var i = 0, child; child = elm.childNodes[i]; i++) {
+        count += arguments.callee(child);
+    }
+    return count;
+})(document.getElementById("eventReceive"));
+letterReceive.innerHTML = charsInBody;
+
+function counter() {
+    if (!arguments.callee.count) {
+        arguments.callee.count = 0;
+    }
+    return arguments.callee.count++;
+}
 </script>
 
 <script type="text/javascript">
@@ -61,7 +107,7 @@ container.innerHTML = parseInt(s);
 
     window.onload = function loadevent() {
         /* obtain a ref to the 'body' element of the page */
-        var body = document.body;
+        var eventReceive = document.getElementById("eventReceive");
         /* create a span element to be clicked */
         var span = document.createElement('span');
         span.id = 'ExampleSpan';
