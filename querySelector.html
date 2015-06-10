@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>[JS]querySelector</title>
+	<style>
+	*{margin:0; padding:0s;}
+	.wrap {width: 1000px; margin:0 auto}
+	#list {display: box; position: relative;}
+	#list li {
+		box-flex: 1;
+		/*display: inline-block;*/
+		float: left;
+		background-color: #930;
+		margin:0 5px;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul id="list">
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+	</div>
+
+	<script>
+		var list = document.querySelector("#list");
+		list.addEventListener("click",function(ev){
+			if (ev.target.tagName === "LI") {
+				ev.target.classList.toggle("done");
+			};
+		}, false);
+	</script>
+</body>
+</html>

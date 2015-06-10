@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="108" height="108">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300">
 	<polygon points="0,54 54,0 108,54" style="fill:#7ca400" />
 	<polygon points="0,54 108,54 54,108" style="fill:#6c8f00" />
-	<!-- <polygon points="0,0 100,0 0,50 50,0 0,100 100,100" style="fill:#007777" /> -->
+	<polygon points="200,200 230,200, 230,202, 200,202" style="fill:#6c8f00" />
 </svg>

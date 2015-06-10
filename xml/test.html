@@ -12,6 +12,31 @@ ul,li {margin:0; padding:0; list-style: none}
 #xml note,
 #xml note title {display: block}
 
+.circle {
+	display: inline-block;
+	position: relative;
+	width: 60px;
+	height: 60px;
+	margin-top: 20px;
+	border-radius: 50%;
+	background-color: #fff;
+	line-height: 60px;
+	text-align: center;
+	overflow: hidden
+}
+.circle:before {
+	content:"";
+	display: inline-block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	top:0;
+	left:0;
+	border:5px solid #665713;
+	border-right-color: #ccc;
+	border-radius: 50%;
+}
+
 @media screen and (min-width: 1174px) {
 	.calc {padding-left: calc(100vw - 100%);}
 }
@@ -36,6 +61,8 @@ ul,li {margin:0; padding:0; list-style: none}
 	<button onclick="loadXMLDoc('xmldata.txt')">Get XML</button>
 	
 	<div id="xml"></div>
+
+	<span class="circle">70%</span>
 </div>
 
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>

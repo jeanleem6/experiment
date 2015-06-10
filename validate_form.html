@@ -1,68 +1,76 @@
-<!Doctype html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!Doctype html>
 <html>
 <head>
+<meta charset="utf-8" />
 <title>Form Validate</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
-* {behavior: url(js/pie_files/PIE.htc);}
-body,div,p,span,ul,li, input, textarea {color:#fff; line-height:180%; font: 14px/22px "微软雅黑", Arial, Helvetica, sans-serif;margin:0; padding:0;}
-ul li {width:auto; float:left; list-style:none;}
-.clearfix:after {content:"."; display:block; clear:both; height:0; visibility:hidden;}
-html.clearfix {height:1%;}
-textarea, input {outline:none; resize:none; background: #e0e0e0; color:#f7f7f7;}
 
-
-.wrapper {text-align:center; position:relative;}
-.content {width:34%; margin:20px auto; background:#64516B; padding:20px; min-height:390px; border-radius:6px; box-shadow: inset 0 0 50px rgba(71, 57, 76, 1); border-bottom: 1px solid #64516B; position:: relative;}
-<!-- .ie6lh{_font-family:\5b8b\4f53;_line-height:1.231} -->
-
-form {width:240px; margin:60px auto; background:transparent; padding:16px; text-align: left; border:1px solid #66536d; box-shadow: 0 0 20px rgba(71, 57, 76, 0.2); position:relative; border-radius: 28px;}
-label {font-weight: bold; color:#fff; margin:0 12px 0 0;}
+<style>
+body,div,p,ul,li,dl,dd,h1,h2,h3,h4,h5,h6{margin:0;padding:0}
+body{background-color:#d9d9d9;font:13px/1.8 Arial,"Simsun",Helvetica,sans-serif;color:#fff}
+li {list-style:none}
+a{color:#fff;trasition:all .3s linear 0s}
+a:hover{color:#ff522a; text-decoration:none}
+img{border:none;vertical-align:middle;-ms-interpolation-mode: bicubic}
+input,textarea {background: #e0e0e0; font: 13px/1.8 Arial,"Simsun", Helvetica, sans-serif; color:#f7f7f7; outline:none; resize:none}
+.cf:before,.cf:after{content:"";display: table}.cf:after{clear:both}.cf{zoom:1}
+.ac{text-align:center}
+.content {position: relative; width:34%; margin:20px auto; padding:20px 0; background:#64516B; border-radius:6px; box-shadow: inset 0 0 50px rgba(71, 57, 76, 1); }
+form { position:relative; width:240px; margin:60px auto; padding:16px; }
+label {margin-right:12px}
 input {border-radius: 4px; width:180px; height: 22px; border:1px solid #735d7b; margin:5px 0; padding:5px; background: #64516b; box-shadow: inset 0 0 20px rgba(71, 57, 76, 0.3);}
-input[type="button"] {width:80px; height:38px; margin:20px 0 0 40px; color:#fff; font-size:15px; font-weight: bold; cursor:pointer;}
-
+input[type="button"] {width:80px; height:32px; margin:20px 0 0 40px; padding:0 5px; border-color: #64516B; background-color: #4f3b56; cursor:pointer; transition:all .3s linear 0s}
+input[type="button"]:hover {background-color: #5a4163; box-shadow: inset 0 1px 2px rgba(174,141,186,.2)}
 </style>
-<script type="text/javascript">
-document.form1.username.focus();
+</head>
+
+<body>
+<div class="content">
+	<h2 class="ac">Javascript Form Validate Document</h2>
+	<form method="post" action="https://github.com/jeanleem6" name="form" id="form">
+		<div><label>姓名</label><input type="text" name="username" onblur="getValue();"></div>
+		<div><label>年龄</label><input type="text" name="age"></div>
+		<div><input type="button" name="button" value="提交" onclick="javascript:check();"></div>
+	</form>
+</div>
+
+<!-- js Forward-->
+<script>
+	var username = document.form.username;
+
+	function getValue() {
+		if(username.value != "") {
+			alert(username.value);
+		}
+		return false;
+	}
+</script>
+
+<script>
+// document.form.username.focus();
 function check() {
-	var age = document.form1.age.value;
-	var username = document.form1.username.value;
+	var age = document.form.age.value;
+	var username = document.form.username.value;
 	var num = /^\d+$/gi;
-	var regname =  /^[\u4e00-\u9fa5]+$/gi; 
+	var regname =  /^[\u4e00-\u9fa5]+$/gi;
 
 	if (!regname.test(username) || username.length < 2) {
 		alert("请用中文名");
-		form1.username.focus();
+		form.username.focus();
 		return false;
 	}
 
 	if (!num.test(age)) {
-		alert("亲，请正确填写你的年龄！");
-		form1.age.focus();
+		alert("请正确填写你的年龄！");
+		form.age.focus();
 		return false;
 	}
 	else if (age > 200 || age < 0) {
 		alert("请输入0~200之间的整数");
-		form1.age.focus();
+		form.age.focus();
 		return false;
-		}
-	document.form1.submit();
+	}
+	document.form.submit();
 }
 </script>
-</head>
-
-<body bgcolor="#000">
-<div class="wrapper">
-    <div class="content">
-	<h2>Javascript Form Validate Document</h2>
-
-	<form method="post" action="https://github.com/jeanleem6" name="form1" id="form1">
-		<label>姓名</label><input type="text" name="username" /><br />
-		<label>年龄</label><input type="text" name="age" /><br />
-		<input type="button" name="button" value="提交" onclick="javascript:check();" />
-	</form>
-
-    </div>
-</div>
 </body>
 </html>
