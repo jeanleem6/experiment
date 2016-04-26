@@ -1,7 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="300">
-	<polygon points="0,54 54,0 108,54" style="fill:#7ca400" />
-	<polygon points="0,54 108,54 54,108" style="fill:#6c8f00" />
-	<polygon points="200,200 230,200, 230,202, 200,202" style="fill:#6c8f00" />
+    <!-- 多边形
+         points(x1,y1 x2,y2 x3,y3 ...):各个顶点；
+         stroke:边框颜色
+         stroke-width:边框宽度
+         fill:填充颜色
+    -->
+	<polygon
+        points="0,150
+                150,0
+                300,150
+                150,300
+                0,150"
+        stroke="orange"
+        stroke-width="5"
+        fill="#7ca400"
+        style="transform:rotate(0deg) translate(0px,-150px);">
+    </polygon>
+	<polygon points="0,150 300,150 150,300" style="fill:#6c8f00"></polygon>
+
+    <!-- 圆角矩形
+         x:x方向移动距离
+         y:y方向移动距离
+         rx:x方向半径
+         ry:y方向半径
+    -->
+    <rect
+        x="72"
+        y="110"
+        rx="20"
+        ry="5"
+        width="150"
+        height="100"
+        stroke="red"
+        fill="rgba(250,250,250,.7)">
+    </rect>
+
+    <!-- 圆形
+         cx:x方向移动距离
+         cy:y方向移动距离
+         r:半径
+    -->
+    <circle
+        cx="150"
+        cy="100"
+        r="50"
+        stroke="red"
+        fill="rgba(0,0,0,.5)">
+    </circle>
+
+    <!-- 椭圆
+         cx:x方向移动距离
+         cy:y方向移动距离
+         rx:x方向半径
+         ry:y方向半径
+    -->
+    <ellipse
+        cx="150"
+        cy="60"
+        rx="70"
+        ry="50"
+        stroke="red"
+        fill="none">
+    </ellipse>
+
+    <!-- 线段
+         x1,y1:线段起点
+         x2,y2:线段终点
+    -->
+    <line
+        x1="10"
+        y1="110"
+        x2="290"
+        y2="110"
+        stroke="red">
+    </line>
+
+    <!-- 折线，参数与多变性含义相同 -->
+    <polyline
+        points="10,110
+                290,180
+                10,180"
+        stroke="red"
+        fill="none">
+    </polyline>
 </svg>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>e4x</title>
+<style>
+.box {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    justify-content:space-around;
+    align-items:flex-start;
+    flex-direction:row;
+}
+.box p {
+    /*margin:0 1px;*/
+    padding:10px;
+    background-color: #ccc;
+}
+.box p:first-child {
+    -webkit-flex:1;
+    -mox-flex:1;
+    flex:1;
+}
+.box p:nth-child(2n) {
+    -webkit-flex:1.5;
+    -mox-flex:1.5;
+    flex:1.5;
+    background-color: #ddd;
+}
+.box p:nth-child(3n) {
+    -webkit-flex:1;
+    -mox-flex:1;
+    flex:1;
+}
+.data {border-bottom: 1px solid #ccc;}
+
+.egg {
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background: url(egg.png) 0 0 no-repeat;
+    background-size:1100%;
+    animation: turn 1s steps(11) infinite;
+}
+@keyframes turn {
+    0% {background-position:0 0;}
+    100% {background-position:110% 0;}
+}
+</style>
+</head>
+
+<body>
+<input type="button" value="获取JSON数据" onclick="getInfo()" />
+<p class="data">
+    Name: <span id="showInfo"></span><br>
+    Phone: <span id="salesphone"></span><br>
+    Location: <span id="location"></span>
+</p>
+
+<div class="box">
+    <p>job中的脚本clone对应的分支，调用构建工具对代码进行构建</p>
+    <p>job中的脚本clone对应的分支</p>
+    <p>job中的脚本clone对应的分支，调用构建工具对代码进行构建,job中的脚本clone对应的分支，调用构建工具对代码进行构建,job中的脚本clone对应的分支，调用构建工具对代码进行构建,job中的脚本clone对应的分支，调用构建工具对代码进行构建</p>
+</div>
+
+<div class="egg"></div>
+
+<script>
+var xmlHttp;
+
+function createXMLHTTPRequest(){
+    if(window.ActiveXObject){
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    else if(window.XMLHttpRequest){
+        xmlHttp = new XMLHttpRequest();
+    }
+}
+
+function getInfo() {
+    createXMLHTTPRequest();
+    xmlHttp.open("get", "note.json", true);
+    xmlHttp.onreadystatechange = returnInfo;
+    xmlHttp.send(null);
+}
+
+function returnInfo() {
+    if(xmlHttp.readyState == 4) {
+        var info = xmlHttp.responseText;
+        eval("var json= " + info);
+        var message = "",
+            dealerlocation = "",
+            salesphone = "";
+
+        for(var i=0; i<json.dealers.length; i++) {
+            message += "经销商名称：<font style='color:red'>" + json.dealers[i].name + "</font><br>";
+            salesphone += "经销商电话：<font style='color:red'>" + json.dealers[i].salesphone + "</font><br>";
+            dealerlocation += "经销商经纬度：<font style='color:red'>" + json.dealers[i].location + "</font><br>";
+        }
+
+        document.getElementById("showInfo").innerHTML = message;
+        document.getElementById("salesphone").innerHTML = salesphone;
+        document.getElementById("location").innerHTML = dealerlocation;
+    }
+}
+</script>
+</body>
+</html>

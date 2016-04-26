@@ -9,7 +9,7 @@
   .red{color:red;}
   .ac {text-align: center}
   .mt30 {margin-top: 30px!important}
-  .wrapper {width: 600px; margin:0 auto;}
+  .wrapper {width: 600px;  margin:0 auto;}
   .flex {
     display: flex;
     flex-direction: row;
@@ -19,14 +19,14 @@
     background-color: #f0f0f0; 
     border: thin dashed black;
   }
-  .flex > div {flex:1; margin:0 10px; background-color: #38e; border: thin solid black; border-radius: 10px; word-wrap: break-word}
-  .flex > div > p { text-align: center; text-decoration: underline; font-weight: 700; }
-  #flexitem1{order:1}
-  #flexitem2{order:0}
-  #flexitem3 { align-self:flex-end; flex:2 1 auto; order:2; color:#fff; font-size: 14px; }
-  #flexitem4{order:3}
-  .tips p {margin-bottom:10px}
-  .tips b {margin-right: 10px}
+  .flex > div {flex:1; flex-basis:0; margin:0 0px; background-color: #38e; border: 0 solid black; border-radius: 10px; word-wrap: break-word;}
+  .flex > div > p {text-align: center; text-decoration: underline; font-weight: 700;}
+  #flexitem1{order:1;}
+  #flexitem2{order:0;}
+  #flexitem3{align-self:center; flex:2; order:2; color:#fff; font-size: 14px;}
+  #flexitem4{order:3;}
+  .tips p {margin-bottom:10px;}
+  .tips b {margin-right: 10px;}
   </style>
 </head>
 <body>
@@ -49,6 +49,11 @@
   <p><b class="red">2.1</b> align-self: flex-start/flex-end/center. (应用于子元素标签：元素顶部(横向排列)或左边(纵向排列)对齐/元素底部(横向排列)或右边(纵向排列)对齐/元素居中对齐)</p>
   <p><b class="red">2.2</b> flex: value. (指定元素所占比例)</p>
   <p><b class="red">2.3</b> order: value. (指定元素排列顺序，从0开始的整数)</p>
+  <p><b class="red">2.4</b> flex: none | [ &lt;'flex-grow'&gt; &lt;'flex-shrink'&gt;? || &lt;'flex-basis'&gt; ] 是这三个属性的简写形式</p>
+  <p><b class="red">2.5</b> flex-basis:  &lt;length&gt; | auto; /* default auto */<br>元素内设置除内容外的空白空间的默认值，若flex-grow值为0，不会设置这个额外的空间，否则按照flex-grow的设置比例对额外空间进行分配。<b>直观表达如下图所示</b></p>
+  <p class="ac"><img src="resources/rel-vs-abs-flex.svg" alt=""></p>
+  <p><b>resource link: </b><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background" target="_blank">https://css-tricks.com/snippets/css/a-guide-to-flexbox/#flexbox-background</a></p>
+  <img src="resources/f-lx.svg" width="150" height="150" alt="">
 </div>
 </body>
 </html>

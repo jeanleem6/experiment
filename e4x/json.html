@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>异步调用JSON</title>
+  </head>
+  <script>
+  <!--
+   var xmlhttp;
+    // 创建XMLHTTPRequest对象
+    function createXMLHTTPRequest()
+    {
+         if(window.ActiveXObject)//②如果当前浏览器为IE
+         {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+         }
+         else if(window.XMLHttpRequest)//③如果是其他浏览器
+         {
+            xmlhttp = new XMLHttpRequest();
+         }
+    }
+
+    function getInfo()
+    {
+      createXMLHTTPRequest();
+      xmlhttp.open("get", "note.json", true);
+      xmlhttp.onreadystatechange = returnInfo;
+      xmlhttp.send(null);
+    }
+
+    function returnInfo()
+    {
+      if(xmlhttp.readyState == 4)
+      {
+       var info = xmlhttp.responseText;
+       eval("var json= " + info);
+       var message="";
+       var dealerlocation="";
+       var salesphone="";
+      for(var i=0;i<json.dealers.name.length;i++){
+           message+="经销商名称：<font style='color:red;'>" + json.dealers.name[i] + "</font>  <br/>";
+           salesphone+="经销商电话：<font style='color:red;'>" + json.dealers.salesphone[i] + "</font>  <br/>";
+           dealerlocation+="经销商经纬度：<font style='color:red;'>" + json.dealers.location[i] + "</font>  <br/>";
+      }
+
+
+       document.getElementById("showInfo").innerHTML = message;
+       document.getElementById("salesphone").innerHTML = salesphone
+       document.getElementById("location").innerHTML=dealerlocation;
+      }
+    }
+
+  -->
+  </script>
+  <body>
+
+  <br/><br/>
+  <h2 style="color: red;">异步调用JSON</h2>
+  <br/><input type="button" value="获取JSON数据" onclick="getInfo()" />
+   <table>
+    <tr>
+    <td><div id="showInfo"></div></td>
+    <td><span id="salesphone"><span></td>
+    <td><span id="location"><span></td>
+    </tr>
+   </table>
+  </body>
+</html>
